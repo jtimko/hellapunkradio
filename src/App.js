@@ -13,7 +13,7 @@ function App() {
   const [station, setStation] = useState("P1nvmEvJTAo");
   const [openChat, setOpenChat] = useState(false);
 
-  let style = "mx-4 h-8 w-8";
+  let iconStyle = "mx-4 h-8 w-8";
 
   const pauseMusic = () => {
     setPause(!pause);
@@ -27,11 +27,15 @@ function App() {
     setOpenChat(!openChat);
   }
 
+  const changeStation = (radio) => {
+    setStation(radio)
+  }
+
 
   return (
     <div className="w-screen">
       <div className="hidden">
-        <Player id={station} pause={pause} mute={mute} />
+        <Player id={station} pause={pause} mute={mute} change={changeStation} />
       </div>
       <div class="main flex w-4/5 h-screen p-4 bg-black mx-auto relative opacity-70">
         <Header
@@ -54,7 +58,7 @@ function App() {
               icon={FiVolumeX} 
               func={muteMusic} 
               color={mute ? 'red' : 'white' }
-              style={style} />
+              iconStyle={iconStyle} />
           </div>
         </div>
 
