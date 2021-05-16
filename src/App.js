@@ -4,6 +4,8 @@ import Header from './components/Header'
 import Player from './components/Player'
 import Button from './components/Button'
 import Chat from './components/Chat'
+import Shows from './components/Shows'
+
 import { FiPlayCircle, FiPauseCircle, FiVolumeX, FiMessageSquare, FiInfo, FiList, FiMail } from "react-icons/fi"
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
   const [mute, setMute] = useState(true);
   const [station, setStation] = useState("P1nvmEvJTAo");
   const [openChat, setOpenChat] = useState(false);
+  const [openShows, setShows] = useState(false);
 
   let iconStyle = "mx-4 h-8 w-8";
 
@@ -25,25 +28,31 @@ function App() {
 
   const showChat = () => {
     setOpenChat(!openChat);
+    setShows(false)
+  }
+
+  const showShows = () => {
+    setShows(!openShows)
+    setOpenChat(false)
   }
 
   const changeStation = (radio) => {
     setStation(radio)
   }
 
-
   return (
     <div className="w-screen">
       <div className="hidden">
         <Player id={station} pause={pause} mute={mute} change={changeStation} />
       </div>
-      <div class="main flex w-4/5 h-screen p-4 bg-black mx-auto relative opacity-70">
+      <div id="main" class="flex w-4/5 h-screen p-4 bg-gray-600 mx-auto relative">
         <Header
           chat={FiMessageSquare} 
           info={FiInfo} 
           shows={FiList} 
           mail={FiMail} 
           toggleChat={showChat}
+          toggleShows={showShows}
         />
         <div class="flex absolute left-4 bottom-4">
           <div className="pause-button">
@@ -63,6 +72,7 @@ function App() {
         </div>
 
         {openChat && <Chat />}
+        {openShows && <Shows />}
 
 
         

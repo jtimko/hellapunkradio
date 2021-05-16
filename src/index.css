@@ -1,7 +1,11 @@
 #root {
-  background: url('./assets/logo.png') #fff no-repeat center center;
+  background: rgba(75, 85, 99, 1);
   position: relative;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 } 
+
+#main {
+  background: url('./assets/logo.png') rgba(75, 85, 99, 1) no-repeat center center;
+}
