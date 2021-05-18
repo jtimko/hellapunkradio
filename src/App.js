@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react'
 import Header from './components/Header'
-import Player from './components/Player'
+// import Player from './components/Player'
 import Button from './components/Button'
 import Chat from './components/Chat'
 import Shows from './components/Shows'
-
+import api from './config/api.json'
 import { FiPlayCircle, FiPauseCircle, FiVolumeX, FiMessageSquare, FiInfo, FiList, FiMail } from "react-icons/fi"
+import ReactAudioPlayer from 'react-audio-player';
 
 function App() {
 
@@ -43,7 +44,15 @@ function App() {
   return (
     <div className="w-screen">
       <div className="hidden">
-        <Player id={station} pause={pause} mute={mute} change={changeStation} />
+        {/* <Player id={station} pause={pause} mute={mute} change={changeStation} /> */}
+        <ReactAudioPlayer
+          src={api.api_radio}
+          autoPlay
+          controls
+          muted={mute}
+          change={changeStation}
+          id={station}
+        />
       </div>
       <div id="main" class="flex w-4/5 h-screen p-4 bg-gray-600 mx-auto relative">
         <Header

@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import Axios from 'axios'
+import api from '../config/api.json'
+
 
 const Chat = () => {
 
@@ -12,38 +15,32 @@ const Chat = () => {
         }
 
         getChat()
-    }, [])
+    })
+
 
     const fetchChat = async () => {
-        const resp = await fetch('http://localhost:5000/chat')
+        const resp = await fetch(api.api_chat)
         const data = await resp.json()
 
         return data
+
     }
 
     const addLog = async (log) => {
-        const resp = await fetch('http://localhost:5000/chat', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(log),
-        })
-        console.log(log)
-        const data = await resp.json()
+        Axios.post(api.api_send, {message: msg})
 
-        setChat([...chat, data])
+        setChat([...chat, log.msg])
     }
 
     return (
         <div className="p-8 rounded border-2 border-red-600 w-3/4 h-3/4 bg-white my-24 mx-auto">
-            <div id="chat" className="container p-2 h-5/6 rounded border-2 border-red-500 shadow-lg overflow-x-scroll">
+            <div className="container p-2 h-5/6 rounded border-2 border-red-500 shadow-lg overflow-x-scroll">
                 {chat.map((logs) => {
-                    return <p key={logs.key} className="p-2">{logs.msg}<hr /></p>
+                    return <p key={logs.id} className="p-2">{logs.message}<hr /></p>
                 })}
             </div>
             
-            <form className="mt-4" onSubmit={(e) => {e.preventDefault(); let key= chat.length + 1; addLog({key, msg}); setMsg('');}} >
+            <form className="mt-4" onSubmit={(e) => {e.preventDefault(); let key= chat.length + 1; if (msg.length > 0) addLog({key, msg}); setMsg('');}} >
                 <input 
                     className="w-4/5 rounded border-2 border-red-500 focus:border-red-700 p-2 shadow-lg" 
                     type="text" 
