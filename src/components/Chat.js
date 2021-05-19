@@ -33,8 +33,8 @@ const Chat = () => {
     }
 
     return (
-        <div className="p-8 rounded border-2 border-red-600 w-3/4 h-3/4 bg-white my-24 mx-auto">
-            <div className="container p-2 h-5/6 rounded border-2 border-red-500 shadow-lg overflow-x-scroll">
+        <div className="p-4 md:p-8 rounded border-2 border-red-600 md:w-3/4 h-3/4 bg-white my-24 mx-auto">
+            <div className="container p-1 md:p-2 h-5/6 rounded md:border-2 border-red-500 shadow-lg overflow-x-scroll">
                 {chat.map((logs) => {
                     return <p key={logs.id} className="p-2">{logs.message}<hr /></p>
                 })}
@@ -42,13 +42,13 @@ const Chat = () => {
             
             <form className="mt-4" onSubmit={(e) => {e.preventDefault(); let key= chat.length + 1; if (msg.length > 0) addLog({key, msg}); setMsg('');}} >
                 <input 
-                    className="w-4/5 rounded border-2 border-red-500 focus:border-red-700 p-2 shadow-lg" 
+                    className=" w-3/4 md:w-4/5 rounded border-2 border-red-500 focus:border-red-700 p-2 shadow-lg" 
                     type="text" 
                     name="sendMsg" 
                     placeholder="Type your message"
                     value={msg}
                     onChange={(e) => setMsg(e.target.value)} />
-                <input type="submit" className="w-1/5 p-2" name="submit" value="submit" />
+                <input type="submit" className="w-1/4 md:w-1/5 p-2" name="submit" value="submit" />
             </form>
         </div>
     )

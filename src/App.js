@@ -54,7 +54,7 @@ function App() {
           id={station}
         />
       </div>
-      <div id="main" class="flex w-4/5 h-screen p-4 bg-gray-600 mx-auto relative">
+      <div id="main" class="flex md:w-4/5 w-screen h-screen p-4 bg-gray-600 mx-auto relative">
         <Header
           chat={FiMessageSquare} 
           info={FiInfo} 
