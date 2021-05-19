@@ -3,9 +3,9 @@ const Header = (props) => {
     return (
         <header className="flex text-white absolute top-4 right-16">
             <props.chat className={style} onClick={props.toggleChat} />
-            <props.info className={style} />
             <props.shows className={style} onClick={props.toggleShows} />
-            <props.mail className={style} />
+            <props.info className={style} onClick={props.toggleInfo} />
+            <props.mail className={style} onClick={props.toggleContact} />
         </header>
     )
 }

@@ -5,23 +5,22 @@ import Header from './components/Header'
 import Button from './components/Button'
 import Chat from './components/Chat'
 import Shows from './components/Shows'
+import Info from './components/Info'
+import Contact from './components/Contact'
 import api from './config/api.json'
-import { FiPlayCircle, FiPauseCircle, FiVolumeX, FiMessageSquare, FiInfo, FiList, FiMail } from "react-icons/fi"
-import ReactAudioPlayer from 'react-audio-player';
+import { FiVolumeX, FiMessageSquare, FiInfo, FiList, FiMail } from "react-icons/fi"
+import ReactAudioPlayer from 'react-audio-player'
 
 function App() {
 
-  const [pause, setPause] = useState(false);
-  const [mute, setMute] = useState(true);
-  const [station, setStation] = useState("P1nvmEvJTAo");
-  const [openChat, setOpenChat] = useState(false);
-  const [openShows, setShows] = useState(false);
+  const [mute, setMute] = useState(true)
+  // const [station, setStation] = useState("P1nvmEvJTAo");
+  const [openChat, setOpenChat] = useState(false)
+  const [openShows, setShows] = useState(false)
+  const [openInfo, setInfo] = useState(false)
+  const [openContact, setContact] = useState(false)
 
   let iconStyle = "mx-4 h-8 w-8";
-
-  const pauseMusic = () => {
-    setPause(!pause);
-  }
 
   const muteMusic = () => {
     setMute(!mute);
@@ -30,16 +29,34 @@ function App() {
   const showChat = () => {
     setOpenChat(!openChat);
     setShows(false)
+    setInfo(false)
+    setContact(false)
   }
 
   const showShows = () => {
     setShows(!openShows)
     setOpenChat(false)
+    setInfo(false)
+    setContact(false)
   }
 
-  const changeStation = (radio) => {
-    setStation(radio)
+  const showInfo = () => {
+    setInfo(!openInfo)
+    setOpenChat(false)
+    setShows(false)
+    setContact(false)
   }
+
+  const showContact = () => {
+    setContact(!openContact)
+    setOpenChat(false)
+    setShows(false)
+    setInfo(false)
+  }
+
+  // const changeStation = (radio) => {
+  //   setStation(radio)
+  // }
 
   return (
     <div className="w-screen">
@@ -50,8 +67,6 @@ function App() {
           autoPlay
           controls
           muted={mute}
-          change={changeStation}
-          id={station}
         />
       </div>
       <div id="main" class="flex md:w-4/5 w-screen h-screen p-4 bg-gray-600 mx-auto relative">
@@ -62,16 +77,18 @@ function App() {
           mail={FiMail} 
           toggleChat={showChat}
           toggleShows={showShows}
+          toggleInfo={showInfo}
+          toggleContact={showContact}
         />
         <div class="flex absolute left-4 bottom-4">
-          <div className="pause-button">
+          {/* <div className="pause-button">
             <Button 
               icon={pause ? FiPauseCircle : FiPlayCircle} 
               func={pauseMusic} 
               color={pause ? 'red' : 'white'}
               />
-          </div>
-          <div className="mute-button">
+          </div> */}
+          <div className="mute-button h-16 w-24 pb-12 border-2 border-red-600 rounded-full bg-black md:border-none md:bg-transparent">
             <Button 
               icon={FiVolumeX} 
               func={muteMusic} 
@@ -82,6 +99,8 @@ function App() {
 
         {openChat && <Chat />}
         {openShows && <Shows />}
+        {openInfo && <Info />}
+        {openContact && <Contact />}
 
 
         

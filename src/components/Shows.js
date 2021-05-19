@@ -3,7 +3,7 @@ const Shows = () => {
         <div className="p-4 md:p-8 rounded border-2 border-green-600 md:w-3/4 h-3/4 bg-white my-24 mx-auto opacity-100" style={{ overflow: "scroll", overflowWrap: "break-word" }}>
             <div style={{ whiteSpace: "pre-line" }}>
                 <p>
-                <br /><br />may 15 sat STREAM:  Erik Brock Band, Elena Lambertson
+                <br />may 15 sat STREAM:  Erik Brock Band, Elena Lambertson
        from Art House Gallery, Berkeley $100-$5 6:30pm
        (see Berkeley Art House Gallery web site for info)
 <br /><br />may 15 sat OUTDOOR SHOW:  Adrian West Band
