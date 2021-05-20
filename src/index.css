@@ -8,4 +8,5 @@
 
 #main {
   background: url('./assets/logo.png') rgba(75, 85, 99, 1) no-repeat center center;
+  background-size: contain;
 }
