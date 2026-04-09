@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "HellaPunk Radio",
-  description: "Northern Californias Punk Scene",
+  description: "Northern Californias Punk",
 };
 
 export default function RootLayout({

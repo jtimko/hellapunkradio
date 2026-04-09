@@ -1,12 +1,7 @@
-"use client";
-import Radio from "./components/Radio";
+import RadioBase from "./components/RadioBase";
 
 export default function Home() {
   return (
-   <>
-      <div className="hidden">
-        <Radio />
-      </div>
-   </>
+    <RadioBase />
   );
 }
