@@ -6,7 +6,7 @@ export default function Radio() {
         <>
             <AudioPlayer
                 autoPlay
-                src="https://74.207.254.203:8000/stream"          
+                src="https://radio.hellapunk.com/stream"          
                 // other props here
             />
         </>
