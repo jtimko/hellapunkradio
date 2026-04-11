@@ -8,7 +8,7 @@ export default function RadioPlayer({ isMuted }: RadioPlayerProps) {
 
   return (
     <ReactAudioPlayer
-      autoPlay
+      autoPlay={true}
       src="https://radio.hellapunk.com/stream"
       muted={isMuted}
     />
