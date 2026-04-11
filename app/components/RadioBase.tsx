@@ -10,7 +10,7 @@ export default function RadioBase() {
                 onClick={() => {setMute(prev => !prev)}}>
                     {mute ? "Muted" : "Unmuted"}
             </button>
-                <RadioPlayer isMuted={mute} />
+            <RadioPlayer isMuted={mute} />
         </div>
     );
 }
