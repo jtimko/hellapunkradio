@@ -12,6 +12,7 @@ export default function RadioPlayer({ isMuted }: RadioPlayerProps) {
     if (playerRef.current?.audio?.current)
       playerRef.current.audio.current.muted = isMuted;
   }, [isMuted]);
+  
   return (
     <div className='hidden'>
       <ReactAudioPlayer
