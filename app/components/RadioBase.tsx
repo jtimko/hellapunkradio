@@ -41,8 +41,8 @@ export default function RadioBase() {
                 func={changePlayerAudio} 
                 color={mute ? 'red' : 'white' }
                 iconStyle={iconStyle} />
-          </div>
-          <p>Now Playing: {nowPlaying}</p>
+            </div>
+          <p className="text-center md:text-left">Now Playing: {nowPlaying}</p>
         </div>
     );
 }
