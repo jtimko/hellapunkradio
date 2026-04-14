@@ -14,7 +14,6 @@ export default function RadioBase() {
                 const resp = await fetch('/api/now-playing');
                 const data = await resp.json();
                 setNowPlaying(data["song"].songtitle || "Unknown");
-                console.log("Data: " + JSON.stringify(data[0]));
             } catch(err) {
                 console.error("Error: ", err);
             }
